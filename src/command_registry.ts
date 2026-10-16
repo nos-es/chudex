@@ -1,11 +1,6 @@
 import { exitPokedex } from "./commands/exit.js";
 import { printHelp } from "./commands/help.js";
-
-export type CLICommand = {
-  name: string;
-  description: string;
-  callback: (commands: Record<string, CLICommand>) => void;
-};
+import { CLICommand } from "./state.js";
 
 export function getCommands(): Record<string, CLICommand> {
   return {

@@ -1,15 +1,8 @@
-import { createInterface } from "node:readline";
-import { stdin, stdout } from "node:process";
-import { getCommands } from "./command_registry.js";
+import { State } from "./state.js";
 
-export function startREPL() {
-  const rl = createInterface({
-    input: stdin,
-    output: stdout,
-    prompt: "Pokedex > ",
-  });
-
-  const commands = getCommands();
+export function startREPL(state: State) {
+  const commands = state.commands;
+  const rl = state.readlineInterface;
 
   rl.prompt(true);
   rl.on("line", (line) => {
@@ -26,7 +19,7 @@ export function startREPL() {
       return;
     }
 
-    command.callback(commands);
+    command.callback(state);
 
     rl.prompt(true);
   });
