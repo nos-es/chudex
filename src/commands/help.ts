@@ -1,4 +1,4 @@
-export function printHelp() {
+export async function printHelp() {
   console.log(`
 Welcome to the Pokedex!
 Usage:
