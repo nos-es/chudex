@@ -1,6 +1,6 @@
 import { State } from "../state.js";
 
-export async function listMaps(state: State) {
+export async function listNextMaps(state: State) {
   const pageURL = state.nextLocationsURL ?? "";
   const locations = await state.pokeApi.fetchLocation(pageURL);
   state.nextLocationsURL = locations.next;
