@@ -17,6 +17,7 @@ export class Cache {
   }
 
   #reap() {
+    console.log("reap execute");
     const removeKeys: string[] = [];
     for (const [key, value] of this.#cache) {
       if (value.createdAt < Date.now() - this.#interval) removeKeys.push(key);
@@ -26,7 +27,7 @@ export class Cache {
     }
   }
   #startReapLoop() {
-    this.#reapIntervalId = setInterval(() => this.#reap, this.#interval);
+    this.#reapIntervalId = setInterval(() => this.#reap(), this.#interval);
   }
 
   stopReapLoop() {
