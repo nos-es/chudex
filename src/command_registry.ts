@@ -1,4 +1,5 @@
 import { exitPokedex } from "./commands/exit.js";
+import { exploreLocationPokemon } from "./commands/explore.js";
 import { printHelp } from "./commands/help.js";
 import { listNextMaps } from "./commands/map.js";
 import { listPreviousMaps } from "./commands/mapb.js";
@@ -25,6 +26,11 @@ export function getCommands(): Record<string, CLICommand> {
       name: "mapb",
       description: "Shows previous locations",
       callback: listPreviousMaps,
+    },
+    explore: {
+      name: "explore",
+      description: "Shows pokemon from specified location",
+      callback: exploreLocationPokemon,
     },
   };
 }

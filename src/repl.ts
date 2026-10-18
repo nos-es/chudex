@@ -20,7 +20,7 @@ export async function startREPL(state: State) {
     }
 
     try {
-      await command.callback(state);
+      await command.callback(state, ...inputs);
     } catch (err) {
       console.log(
         "There seems to be an issue with this command. Try again later.",
