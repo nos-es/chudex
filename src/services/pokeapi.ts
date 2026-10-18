@@ -3,7 +3,7 @@ export class PokeAPI {
 
   constructor() { }
   async fetchLocation(pageURL?: string): Promise<ShallowLocations> {
-    let locationURL: string = `${PokeAPI.baseUrl}/location-area`;
+    let locationURL: string = `${PokeAPI.baseUrl}/location-area?offset=0&limit=20`;
 
     if (pageURL) {
       locationURL = pageURL;
