@@ -26,7 +26,7 @@ export class PokeAPI {
     }
     throw new Error("A Problem occured when trying to fetch locations");
   }
-  async fetchPokemonByLocation(location: string) {
+  async fetchPokemonByLocation(location: string): Promise<PokemonEncounters> {
     let locationURL: string = `${PokeAPI.baseUrl}/location-area/${location}`;
 
     try {
@@ -47,6 +47,18 @@ export class PokeAPI {
     throw new Error("A Problem occured when trying to fetch locations");
   }
 }
+
+export type PokemonEncounters = {
+  pokemon_encounters: PokemonEncounter[];
+};
+export type PokemonEncounter = {
+  pokemon: Pokemon;
+};
+
+export type Pokemon = {
+  name: string;
+  url: string;
+};
 
 export type ShallowLocations = {
   count: number;
