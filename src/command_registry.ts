@@ -2,6 +2,7 @@ import { catchPokemon } from "./commands/catch.js";
 import { exitPokedex } from "./commands/exit.js";
 import { exploreLocationPokemon } from "./commands/explore.js";
 import { printHelp } from "./commands/help.js";
+import { inspectPokemon } from "./commands/inspect.js";
 import { listNextMaps } from "./commands/map.js";
 import { listPreviousMaps } from "./commands/mapb.js";
 import { CLICommand } from "./state.js";
@@ -37,6 +38,11 @@ export function getCommands(): Record<string, CLICommand> {
       name: "catch",
       description: "Catch a pokemon.",
       callback: catchPokemon,
+    },
+    inspect: {
+      name: "inspect",
+      description: "Inspect a caught pokemon.",
+      callback: inspectPokemon,
     },
   };
 }
